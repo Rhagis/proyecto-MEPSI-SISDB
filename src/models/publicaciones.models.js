@@ -7,13 +7,13 @@ const añadirPubicacionABD = async (titulo, contenido, usuarioId) => {
 };
 
 const obtenerPublicaciones = async () => {
-    const query = 'SELECT * FROM publicaciones';
+    const query = 'SELECT titulo, contenido, usuarios.nombre AS autor_nombre FROM publicaciones INNER JOIN usuarios ON publicaciones.autor_id = usuarios.id';
     const { rows } = await pool.query(query);
     return rows;
 };
 
 const obtenerPublicacionPorId = async (id) => {
-    const query = 'SELECT * FROM publicaciones WHERE id = $1';
+    const query = 'SELECT titulo, contenido, usuarios.nombre AS autor_nombre FROM publicaciones INNER JOIN usuarios ON publicaciones.autor_id = usuarios.id WHERE publicaciones.id = $1';
     const values = [id];
     const { rows } = await pool.query(query, values);
     return rows[0];
