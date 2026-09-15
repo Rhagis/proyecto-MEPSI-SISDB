@@ -1,12 +1,13 @@
--- archivo: init.sql
 --
 -- PostgreSQL database dump
 --
 
-\restrict AK7hGVUdeg3fmgrXezWeMeoKitfgnUWN9zINvOl99d847FcUT5X4d96WV39mCQO
+\restrict er45MnDr6SG8fTyFE8ieCzAOQVqD7xMhi7bkvYDjNPWZe4ZtQ6FkTaSrddbFEn7
 
 -- Dumped from database version 17.10
 -- Dumped by pg_dump version 17.10
+
+-- Started on 2026-09-14 21:48:01
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -25,6 +26,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
+-- TOC entry 220 (class 1259 OID 17047)
 -- Name: publicaciones; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -39,6 +41,7 @@ CREATE TABLE public.publicaciones (
 ALTER TABLE public.publicaciones OWNER TO postgres;
 
 --
+-- TOC entry 219 (class 1259 OID 17046)
 -- Name: publicaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -53,6 +56,7 @@ ALTER TABLE public.publicaciones ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTIT
 
 
 --
+-- TOC entry 218 (class 1259 OID 16712)
 -- Name: usuarios; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -69,6 +73,7 @@ CREATE TABLE public.usuarios (
 ALTER TABLE public.usuarios OWNER TO postgres;
 
 --
+-- TOC entry 217 (class 1259 OID 16711)
 -- Name: usuarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -83,6 +88,8 @@ ALTER TABLE public.usuarios ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
+-- TOC entry 4906 (class 0 OID 17047)
+-- Dependencies: 220
 -- Data for Name: publicaciones; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -92,6 +99,8 @@ COPY public.publicaciones (id, titulo, contenido, autor_id) FROM stdin;
 
 
 --
+-- TOC entry 4904 (class 0 OID 16712)
+-- Dependencies: 218
 -- Data for Name: usuarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -106,6 +115,8 @@ COPY public.usuarios (id, usuario, contrasena, email, activo, fecha_creacion) FR
 
 
 --
+-- TOC entry 4912 (class 0 OID 0)
+-- Dependencies: 219
 -- Name: publicaciones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -113,6 +124,8 @@ SELECT pg_catalog.setval('public.publicaciones_id_seq', 1, true);
 
 
 --
+-- TOC entry 4913 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -120,6 +133,7 @@ SELECT pg_catalog.setval('public.usuarios_id_seq', 10, true);
 
 
 --
+-- TOC entry 4756 (class 2606 OID 17053)
 -- Name: publicaciones publicaciones_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -128,6 +142,7 @@ ALTER TABLE ONLY public.publicaciones
 
 
 --
+-- TOC entry 4750 (class 2606 OID 16722)
 -- Name: usuarios usuarios_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -136,6 +151,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
+-- TOC entry 4752 (class 2606 OID 16718)
 -- Name: usuarios usuarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -144,6 +160,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
+-- TOC entry 4754 (class 2606 OID 16720)
 -- Name: usuarios usuarios_usuario_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -152,6 +169,7 @@ ALTER TABLE ONLY public.usuarios
 
 
 --
+-- TOC entry 4757 (class 2606 OID 17054)
 -- Name: publicaciones publicaciones_autor_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -159,9 +177,11 @@ ALTER TABLE ONLY public.publicaciones
     ADD CONSTRAINT publicaciones_autor_id_fkey FOREIGN KEY (autor_id) REFERENCES public.usuarios(id) ON DELETE RESTRICT;
 
 
+-- Completed on 2026-09-14 21:48:01
+
 --
 -- PostgreSQL database dump complete
 --
 
-\unrestrict AK7hGVUdeg3fmgrXezWeMeoKitfgnUWN9zINvOl99d847FcUT5X4d96WV39mCQO
+\unrestrict er45MnDr6SG8fTyFE8ieCzAOQVqD7xMhi7bkvYDjNPWZe4ZtQ6FkTaSrddbFEn7
 
