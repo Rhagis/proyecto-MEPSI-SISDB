@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/mydatabase
+      DB_USER: postgres
+      DB_PASSWORD: pikachu17
+      DB_NAME: Biblioteca
+      JWT_SECRET: clave_secreta_8fK92LmPq7xZs4RtBvN3Yh6Cd
+
+    depends_on:
+      - db
